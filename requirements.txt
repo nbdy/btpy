@@ -1,0 +1,4 @@
+gps
+bluepy
+PyBluez
+gattlib
