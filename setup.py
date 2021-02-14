@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     long_description=open("README.rst", "r").read(),
     name="btpy",
-    version="1.0",
+    version="1.01",
     description="bluetooth library",
     author="Pascal Eberlein",
     author_email="pascal@eberlein.io",
@@ -15,6 +15,13 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python :: 3.6',
     ],
+    scripts=["dependencies.sh"],
     keywords="bluetooth library",
     packages=find_packages(),
+    entry_points={
+        'console_scripts': [
+            'btpy = btpy.__main__:main'
+        ]
+    },
+    install_requires=open("requirements.txt").readlines()
 )

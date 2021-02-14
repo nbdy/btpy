@@ -2,13 +2,13 @@
 
 [![asciicast](https://asciinema.org/a/299826.svg)](https://asciinema.org/a/299826)
 
-### how to ...
-#### ... get started
-```shell script
-./dependencies.py
+### how to ..
+#### .. install
+```shell
+pip3 install btpy
 ```
 
-#### ... to use it
+#### .. to use it
 ```
 Python 3.7.5rc1 (default, Oct  8 2019, 16:47:45) 
 Type 'copyright', 'credits' or 'license' for more information
