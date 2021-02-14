@@ -1,4 +1,3 @@
-gps
-bluepy
-PyBluez
-gattlib
+PyBluez==0.22
+bleak
+beacontools[scan]

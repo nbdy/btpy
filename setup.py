@@ -1,21 +1,18 @@
 from setuptools import setup, find_packages
 
+
 setup(
-    long_description=open("README.rst", "r").read(),
+    long_description=open("README.md", "r").read(),
     name="btpy",
-    version="1.01",
-    description="bluetooth library",
+    version="2.0.3",
+    description="bluetooth library for beacons, classic and low-energy devices",
     author="Pascal Eberlein",
     author_email="pascal@eberlein.io",
     url="https://github.com/nbdy/btpy",
     classifiers=[
-        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
-        'Topic :: Software Development :: Build Tools',
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3',
     ],
-    scripts=["dependencies.sh"],
     keywords="bluetooth library",
     packages=find_packages(),
     entry_points={
@@ -23,5 +20,8 @@ setup(
             'btpy = btpy.__main__:main'
         ]
     },
-    install_requires=open("requirements.txt").readlines()
+    install_requires=[
+        "PyBluez==0.22", "bleak", "beacontools[scan]"
+    ],
+    long_description_content_type="text/markdown"
 )

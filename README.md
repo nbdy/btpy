@@ -1,38 +1,27 @@
 ## btpy
+this is a wrapper around
+- [bleak](https://github.com/hbldh/bleak) for low-energy support
+- [beacontools](https://github.com/citruz/beacontools) for beacon support
+- [bluez](http://www.bluez.org/) for classic support
 
-[![asciicast](https://asciinema.org/a/299826.svg)](https://asciinema.org/a/299826)
-
-### how to ..
+### how to ...
 #### .. install
 ```shell
 pip3 install btpy
+# or (this is not guaranteed to be stable)
+pip3 install git+https://github.com/nbdy/btpy
 ```
 
-#### .. to use it
-```
-Python 3.7.5rc1 (default, Oct  8 2019, 16:47:45) 
-Type 'copyright', 'credits' or 'license' for more information
-IPython 7.9.0 -- An enhanced Interactive Python. Type '?' for help.
+#### ... to use it
+```python
+from btpy import LEDevice, Beacon, ClassicDevice
 
-In [1]: from btpy import Scanner, ClassicDevice                                                                                                                                        
+le_results = LEDevice.scan(4)
 
-In [2]: Scanner.scan_for()                                                                                                                                                             
-Permission Denied
-Set scan parameters failed (are you root?)
-found 1 devices
-Out[2]: [<btpy.libs.bt.classic.ClassicDevice at 0x7f3427045210>]
+beacon_results = Beacon.scan(5)
 
-In [3]: c = ClassicDevice.scan()                                                                                                                                                       
-
-In [4]: c                                                                                                                                                                              
-Out[4]: [<btpy.libs.bt.classic.ClassicDevice at 0x7f3425559d50>]
-
-In [5]: c[0].__dict__                                                                                                                                                                  
-Out[5]: 
-{'address': 'A8:B8:6E:C1:6A:28',
- 'timestamp': '03.11.2019 16:48:06',
- 'name': 'Nexus 5X'}
-
+classic_results = ClassicDevice.scan(6)
 ```
 
-or check [bt.py](https://github.com/nbdy/btpy/blob/master/bt.py)
+##### TODO
+- [ ] Tests
