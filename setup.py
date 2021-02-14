@@ -1,4 +1,18 @@
 from setuptools import setup, find_packages
+from os import system
+
+system("""
+sudo apt-get install -y \
+  python3 \
+  python3-dev \
+  python3-pip \
+  libglib2.0-dev \
+  libbluetooth-dev \
+  libreadline-dev \
+  libboost-python-dev \
+  libboost-thread-dev \
+  pkg-config
+""")
 
 setup(
     long_description=open("README.rst", "r").read(),
