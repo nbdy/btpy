@@ -1,18 +1,19 @@
+from setuptools.command.sdist import sdist
 from setuptools import setup, find_packages
-from os import system
 
-system("""
-sudo apt-get install -y \
-  python3 \
-  python3-dev \
-  python3-pip \
-  libglib2.0-dev \
-  libbluetooth-dev \
-  libreadline-dev \
-  libboost-python-dev \
-  libboost-thread-dev \
-  pkg-config
-""")
+
+class InstallSetupScript(sdist):
+    def run(self):
+        try:
+            self.spawn(['sudo', 'apt-get', 'install', '-y',
+                        'python3', 'python3-dev', 'python3-pip',
+                        'libglib2.0-dev', 'libbluetooth-dev',
+                        'libreadline-dev', 'libboost-python-dev',
+                        'libboost-thread-dev', 'pkg-config'])
+        except Exception as e:
+            print(e)
+        super().run()
+
 
 setup(
     long_description=open("README.rst", "r").read(),
@@ -37,5 +38,8 @@ setup(
             'btpy = btpy.__main__:main'
         ]
     },
-    install_requires=open("requirements.txt").readlines()
+    install_requires=open("requirements.txt").readlines(),
+    cmdclass={
+        'sdist': InstallSetupScript
+    }
 )

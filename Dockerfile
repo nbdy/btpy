@@ -1,5 +1,5 @@
 FROM python:slim
-RUN apt-get update ; \
-    apt-get upgrade -y ; \
-    apt-get install -y git
-RUN pip3 install git+https://github.com/nbdy/btpy
+RUN apt update ; \
+    apt upgrade -y ; \
+    apt install -y python3 python3-pip python3-dev
+RUN pip3 install btpy
