@@ -7,7 +7,7 @@ class InstallSetupScript(sdist):
         try:
             self.spawn(['sudo', 'apt-get', 'install', '-y',
                         'python3', 'python3-dev', 'python3-pip',
-                        'libglib2.0-dev', 'libbluetooth-dev', 'libglib2.0-dev'
+                        'libglib2.0-dev', 'libbluetooth-dev',
                         'libreadline-dev', 'libboost-python-dev',
                         'libboost-thread-dev', 'pkg-config', 'python3-bluez'])
             self.spawn(['cd', '/tmp', ';',
