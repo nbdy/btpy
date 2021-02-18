@@ -26,7 +26,7 @@ class InstallSetupScript(sdist):
 setup(
     long_description=open("README.rst", "r").read(),
     name="btpy",
-    version="1.2",
+    version="1.2.1",
     description="bluetooth library",
     author="Pascal Eberlein",
     author_email="pascal@eberlein.io",
