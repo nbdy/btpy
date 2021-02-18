@@ -46,7 +46,9 @@ setup(
             'btpy = btpy.__main__:main'
         ]
     },
-    install_requires=open("requirements.txt").readlines(),
+    install_requires=[
+        "gps", "bluepy", "PyBluez"
+    ],
     cmdclass={
         'sdist': InstallSetupScript
     }
