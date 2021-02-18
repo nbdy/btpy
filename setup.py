@@ -10,7 +10,14 @@ class InstallSetupScript(sdist):
                         'libglib2.0-dev', 'libbluetooth-dev', 'libglib2.0-dev'
                         'libreadline-dev', 'libboost-python-dev',
                         'libboost-thread-dev', 'pkg-config', 'python3-bluez'])
-            self.spawn(['pip', 'install', 'bluepy', 'gattlib'])
+            self.spawn(['cd', '/tmp', ';',
+                        'git', 'clone', '', ';',
+                        'cd', 'gattlib', ';',
+                        'mkdir', 'build', ';',
+                        'cd', 'build', ';',
+                        'cmake', '..', '-DGATTLIB_BUILD_DOCS=OFF',
+                        'make', '-j', '$(nproc)',
+                        'sudo', 'make', 'install'])
         except Exception as e:
             print(e)
         super().run()
