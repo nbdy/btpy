@@ -17,7 +17,10 @@ class InstallSetupScript(sdist):
                         'cd', 'build', ';',
                         'cmake', '..', '-DGATTLIB_BUILD_DOCS=OFF',
                         'make', '-j', '$(nproc)',
-                        'sudo', 'make', 'install'])
+                        'sudo', 'make', 'install', ';',
+                        'cd', '..', ';',
+                        'cd gattlib-py', ';',
+                        'pip3', 'install', '.', '--upgrade'])
         except Exception as e:
             print(e)
         super().run()
