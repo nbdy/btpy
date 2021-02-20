@@ -8,7 +8,7 @@ class InstallSetupScript(sdist):
             self.spawn(['sudo', 'apt-get', 'install', '-y',
                         'python3', 'python3-dev', 'python3-pip',
                         'libglib2.0-dev', 'libbluetooth-dev',
-                        'libreadline-dev', 'libboost-python-dev',
+                        'libreadline-dev', 'libboost-python-dev', 'git',
                         'libboost-thread-dev', 'pkg-config', 'python3-bluez'])
             self.spawn(['cd', '/tmp', ';',
                         'git', 'clone', '', ';',
@@ -17,10 +17,8 @@ class InstallSetupScript(sdist):
                         'cd', 'build', ';',
                         'cmake', '..', '-DGATTLIB_BUILD_DOCS=OFF',
                         'make', '-j', '$(nproc)',
-                        'sudo', 'make', 'install', ';',
-                        'cd', '..', ';',
-                        'cd gattlib-py', ';',
-                        'pip3', 'install', '.', '--upgrade'])
+                        'sudo', 'make', 'install'])
+            self.spawn(['pip3', 'install', 'git+https://github.com/oscaracena/pygattlib'])
         except Exception as e:
             print(e)
         super().run()
