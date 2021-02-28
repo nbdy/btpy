@@ -1,8 +1,8 @@
-from setuptools.command.sdist import sdist
+from setuptools.command.install import install
 from setuptools import setup, find_packages
 
 
-class InstallSetupScript(sdist):
+class InstallSetupScript(install):
     def run(self):
         try:
             self.spawn(['sudo', 'apt-get', 'install', '-y',
@@ -50,7 +50,7 @@ setup(
         "gps", "bluepy", "PyBluez"
     ],
     cmdclass={
-        'sdist': InstallSetupScript
+        'install': InstallSetupScript
     },
     long_description_content_type="text/markdown"
 )
