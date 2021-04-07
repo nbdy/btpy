@@ -36,7 +36,7 @@ setup(
         ]
     },
     install_requires=[
-        "gps", "gattlib", "bluepy", "PyBluez"
+        "gps", "bluepy", "PyBluez"
     ],
     cmdclass={
         'install': InstallSetupScript
