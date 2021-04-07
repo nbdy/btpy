@@ -4,6 +4,7 @@ from setuptools import setup, find_packages
 
 class InstallSetupScript(install):
     def run(self):
+        install.run(self)
         try:
             self.spawn(['sudo', 'apt-get', 'install', '-y',
                         'python3', 'python3-dev', 'python3-pip',
@@ -18,16 +19,14 @@ class InstallSetupScript(install):
                         'cmake', '..', '-DGATTLIB_BUILD_DOCS=OFF',
                         'make', '-j', '$(nproc)',
                         'sudo', 'make', 'install'])
-            self.spawn(['pip3', 'install', 'git+https://github.com/oscaracena/pygattlib'])
         except Exception as e:
             print(e)
-        super().run()
 
 
 setup(
     long_description=open("README.md", "r").read(),
     name="btpy",
-    version="1.2.5",
+    version="1.2.6",
     description="bluetooth library",
     author="Pascal Eberlein",
     author_email="pascal@eberlein.io",
@@ -47,7 +46,7 @@ setup(
         ]
     },
     install_requires=[
-        "gps", "bluepy", "PyBluez"
+        "gps", "gattlib", "bluepy", "PyBluez"
     ],
     cmdclass={
         'install': InstallSetupScript
