@@ -1,4 +1,3 @@
-gps
-bluepy
 PyBluez
-gattlib
+bleak
+beacontools[scan]
