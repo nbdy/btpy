@@ -16,7 +16,7 @@ class InstallSetupScript(install):
 setup(
     long_description=open("README.md", "r").read(),
     name="btpy",
-    version="1.2.8",
+    version="2.0.0",
     description="bluetooth library",
     author="Pascal Eberlein",
     author_email="pascal@eberlein.io",
@@ -36,7 +36,7 @@ setup(
         ]
     },
     install_requires=[
-        "gps", "bluepy", "PyBluez"
+        "PyBluez", "bleak", "beacontools[scan]"
     ],
     cmdclass={
         'install': InstallSetupScript
