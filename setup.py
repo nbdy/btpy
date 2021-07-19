@@ -1,23 +1,11 @@
-from setuptools.command.install import install
 from setuptools import setup, find_packages
-from os import system
-
-
-class InstallSetupScript(install):
-    def run(self):
-        install.run(self)
-        system("sudo apt install -y python3 python3-dev python3-pip libglib2.0-dev libbluetooth-dev git "
-               "libreadline-dev libboost-python-dev libboost-thread-dev pkg-config python3-bluez")
-
-        system("cd /tmp; git clone https://github.com/labapart/gattlib; cd gattlib; mkdir build; cd build; "
-               "cmake .. -DGATTLIB_BUILD_DOCS=OFF; make -j $(nproc); sudo make install")
 
 
 setup(
     long_description=open("README.md", "r").read(),
     name="btpy",
-    version="2.0.0",
-    description="bluetooth library",
+    version="2.0.1",
+    description="bluetooth library for beacons, classic and low-energy devices",
     author="Pascal Eberlein",
     author_email="pascal@eberlein.io",
     url="https://github.com/nbdy/btpy",
@@ -38,8 +26,5 @@ setup(
     install_requires=[
         "PyBluez", "bleak", "beacontools[scan]"
     ],
-    cmdclass={
-        'install': InstallSetupScript
-    },
     long_description_content_type="text/markdown"
 )
