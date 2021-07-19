@@ -20,7 +20,7 @@ class LEDevice(Device):
 
         async def run():
             global _le_scan_ret
-            _le_scan_ret = discover()
+            _le_scan_ret = await discover()
 
         get_event_loop().run_until_complete(run())
 
