@@ -1,3 +1,3 @@
-PyBluez
+PyBluez==0.22
 bleak
 beacontools[scan]
