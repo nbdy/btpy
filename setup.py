@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 setup(
     long_description=open("README.md", "r").read(),
     name="btpy",
-    version="2.0.3",
+    version="2.0.4",
     description="bluetooth library for beacons, classic and low-energy devices",
     author="Pascal Eberlein",
     author_email="pascal@eberlein.io",
