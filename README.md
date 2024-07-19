@@ -1,3 +1,5 @@
+### the pypi package is outdated and will not be updated anymore
+
 ## btpy
 this is a wrapper around
 - [bleak](https://github.com/hbldh/bleak) for low-energy support
@@ -7,8 +9,6 @@ this is a wrapper around
 ### how to ...
 #### .. install
 ```shell
-pip3 install btpy
-# or (this is not guaranteed to be stable)
 pip3 install git+https://github.com/nbdy/btpy
 ```
 
