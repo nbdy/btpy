@@ -7,7 +7,7 @@ allow-direct-references = true
 
 [project]
 name = "btpy"
-version = "2.0.5"
+version = "2.0.6"
 requires-python = ">= 3.11"
 authors = [{name = "nbdy"}]
 maintainers = [{name = "nbdy"}]
