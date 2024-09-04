@@ -1,5 +1,10 @@
-from btpy.device import Device
+from __future__ import annotations
+
+from typing import Optional
+
 from bluetooth import discover_devices, find_service
+
+from btpy.device import Device
 
 
 class Service(object):
@@ -23,39 +28,27 @@ class Service(object):
         self.service_id = service["service-id"]
 
     @staticmethod
-    def found_to_list(services):
-        r = []
-        for s in services:
-            r.append(Service(s))
-        return r
+    def found_to_list(services:  list[dict[str, list | None]]) -> list[Service]:
+        return [Service(s) for s in services]
 
 
 class ClassicDevice(Device):
-    name = None
-    services = []
+    name: str = None
+    services: list[Service] = []
 
-    def __init__(self, address, name=None):
+    def __init__(self, address: str, name: Optional[str] = None):
         Device.__init__(self, address)
         self.name = name
 
     @staticmethod
-    def scan(duration: int = 3, lookup_names: bool = True, lookup_class: bool = False):
-        return ClassicDevice.found_to_list(discover_devices(duration, lookup_names=lookup_names, lookup_class=lookup_class))
-
-    def get_services(self):
-        self.services = Service.found_to_list(find_service(address=self.address))
-
-    def to_dict(self):
-        services = []
-        for s in self.services:
-            services.append(s.__dict__)
-        d = self.__dict__
-        d["services"] = services
-        return d
+    def found_to_list(devices: list[tuple[str, str]]) -> list[ClassicDevice]:
+        return [ClassicDevice(device[0], device[1]) for device in devices]
 
     @staticmethod
-    def found_to_list(devices):
-        devs = []
-        for device in devices:
-            devs.append(ClassicDevice(device[0], device[1]))
-        return devs
+    def scan(duration: int = 3, lookup_names: bool = True, lookup_class: bool = False) -> list[ClassicDevice]:
+        return ClassicDevice.found_to_list(
+            discover_devices(duration, lookup_names=lookup_names, lookup_class=lookup_class)
+        )
+
+    def get_services(self) -> list[Service]:
+        return Service.found_to_list(find_service(address=self.address))
