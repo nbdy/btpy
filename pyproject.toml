@@ -7,7 +7,7 @@ allow-direct-references = true
 
 [project]
 name = "btpy"
-version = "2.0.6"
+version = "2.0.7"
 requires-python = ">= 3.11"
 authors = [{name = "nbdy"}]
 maintainers = [{name = "nbdy"}]
@@ -34,4 +34,4 @@ Issues = "https://github.com/nbdy/btpy/issues"
 Changelog = "https://github.com/nbdy/btpy/blob/main/CHANGELOG.md"
 
 [project.scripts]
-vidscaler = "btpy:main"
+btpy = "btpy:main"
