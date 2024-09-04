@@ -28,4 +28,5 @@ class Beacon(Device):
         scanner.start()
         sleep(duration)
         scanner.stop()
+
         return r
