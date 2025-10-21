@@ -7,7 +7,7 @@ allow-direct-references = true
 
 [project]
 name = "btpy"
-version = "2.0.8"
+version = "2.0.9"
 requires-python = ">= 3.10"
 authors = [{name = "nbdy"}]
 maintainers = [{name = "nbdy"}]
@@ -22,9 +22,9 @@ classifiers = [
     "Programming Language :: Python :: 3.12",
 ]
 dependencies = [
-    "pybluez @ git+https://github.com/pybluez/pybluez.git#egg=pybluez",
-    "bleak>=1.1.1",
-    "beacontools[scan]>=2.1.0"
+    "bumble>=0.0.210",
+    "bleak==1.1.1",
+    "beacontools[scan]==2.1.0"
 ]
 
 [project.urls]

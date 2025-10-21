@@ -6,7 +6,7 @@ A comprehensive Python library for Bluetooth communication, providing unified in
 
 - **Bluetooth Low Energy (BLE)**: Scan and interact with BLE devices using [bleak](https://github.com/hbldh/bleak)
 - **Beacon Support**: Detect and parse beacon advertisements using [beacontools](https://github.com/citruz/beacontools)
-- **Classic Bluetooth**: Work with classic Bluetooth devices via [bluez](http://www.bluez.org/)
+- **Classic Bluetooth**: Work with classic Bluetooth devices via [bumble](https://github.com/google/bumble)
 - **Simple API**: Easy-to-use interface for common Bluetooth operations
 - **Cross-platform**: Works on Linux, macOS, and Windows (where supported by underlying libraries)
 
